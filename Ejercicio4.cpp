@@ -7,7 +7,6 @@
 using namespace std;
 
 void crear(char * &lista, long long tam){
-	lista = new char [tam];
     cout<<"Ingrese palabra: "; cin>>lista;
 }
 
@@ -18,13 +17,11 @@ int Iterativo(char *lista){
     cout<<"La cantidad de elementos es: "<<idx;
     return 0;
 }
-
-void Recursivo(char *lista){
-    int i=0,
-    if(*(lista+i)!= '\0'){
-        Recursivo(lista+i);
+int Recursivo(char *lista){
+    if(*lista =='\0') return 0;
+    else {
+        return 1 + Recursivo(lista+1);
     }
-    cout<<i;
 }
 
 int main(){
@@ -33,8 +30,7 @@ int main(){
 	crear(lista,tam);
     cout<<"POR ITERATIVIDAD: "<<endl;
     Iterativo(lista);
-    cout<<"\nPOR RECURSIVIDAD: "<<endl;
-    Recursivo(lista);
+    cout<<"\nPOR RECURSIVIDAD: "<<Recursivo(lista);
 	delete[]lista;
     return 0;
 }
